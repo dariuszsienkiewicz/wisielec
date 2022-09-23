@@ -44,3 +44,9 @@ body {
   float: left;
   cursor: pointer;
 }
+
+.litera:hover {
+  background-color: #222222;
+  color: white;
+  border: 3px solid white;
+}
