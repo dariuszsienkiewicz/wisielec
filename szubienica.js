@@ -60,7 +60,9 @@ function start() {
     var element = "lit" + i;
     tresc_diva =
       tresc_diva +
-      '<div class="litera" id="' +
+      '<div class="litera" onclick="sprawdz(' +
+      i +
+      ')" id="' +
       element +
       '">' +
       litery[i] +
@@ -72,4 +74,12 @@ function start() {
   document.getElementById("alfabet").innerHTML = tresc_diva;
 
   wypisz_haslo();
+}
+
+function sprawdz(nr) {
+  for (i = 0; i < dlugosc; i++) {
+    if (haslo.charAt(i) == litery[nr]) {
+      alert(i);
+    }
+  }
 }
