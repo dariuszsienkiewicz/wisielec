@@ -2,6 +2,8 @@ body {
   background-color: black;
   color: lightgray;
   font-size: 28px;
+  font-family: "Inconsolata", monospace;
+  font: weight 700px;
 }
 
 #pojemnik {
