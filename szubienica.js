@@ -1,4 +1,23 @@
-var haslo = "Bez pracy nie ma kołaczy";
+var tablica_hasel = new Array(10);
+tablica_hasel[0] = "Gdyby kózka nie skakała to by nóżki nie złamała";
+tablica_hasel[1] = "Bez ciekawości nie ma mądrości";
+tablica_hasel[2] = "czego Jaś się nie nauczy tego Jan nie będzie umiał";
+tablica_hasel[3] = "Dobra żona tym się chlubi że gotuje co mąż lubi";
+tablica_hasel[4] = "Darowanemu koniowi w zęby się nie zagląda";
+tablica_hasel[5] = "Oszczędnością i pracą ludzie się bogacą";
+tablica_hasel[6] = "Ten się śmieje kto się śmieje ostatni";
+tablica_hasel[7] = "Kto nie ma w głowie ten ma w nogach";
+tablica_hasel[8] = "Gdzie dwóch się bije tam trzeci korzysta";
+tablica_hasel[9] = "Tak krawiec kraje jak mu materii staje";
+
+function losowanie() {
+  var liczba_tablica_hasel = Math.round(Math.random() * tablica_hasel.length);
+  wylosowane_haslo = tablica_hasel[liczba_tablica_hasel]; // ze względu na wstawiony var bujałem się jak bury osioł
+}
+
+losowanie();
+
+var haslo = wylosowane_haslo; // podmienione hasło stałe na hasło losowane
 haslo = haslo.toUpperCase();
 
 var dlugosc = haslo.length;
@@ -6,6 +25,8 @@ var ile_skuch = 0;
 
 var yes = new Audio("yes.wav");
 var no = new Audio("no.wav");
+var wygrana = new Audio("wygrana.wav");
+var przegrana = new Audio("przegrana.wav");
 
 var haslo1 = "";
 
@@ -120,16 +141,20 @@ function sprawdz(nr) {
   }
 
   //wygrana
-  if (haslo == haslo1)
+  if (haslo == haslo1) {
+    wygrana.play();
     document.getElementById("alfabet").innerHTML =
       "Tak jest! Podano prawidłowe hasło: " +
       haslo +
       '<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
+  }
 
   //przegrana
-  if (ile_skuch >= 9)
+  if (ile_skuch >= 9) {
+    przegrana.play();
     document.getElementById("alfabet").innerHTML =
       "Przegrana! Prawidłowe hasło to: " +
       haslo +
       '<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
+  }
 }
